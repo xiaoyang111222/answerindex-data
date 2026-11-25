@@ -6,6 +6,47 @@ Open datasets from [AnswerIndex](https://answerindex.org), an independent measur
 
 Free to use with attribution to AnswerIndex.
 
+## November 25, 2026 edition
+
+Measured **November 25, 2026** over the **Tranco top 10,000** websites — the second monthly census, six days after the first edition (same domain list, same counting rules, so the changes below are exact).
+
+Files:
+
+| File | Contents |
+|---|---|
+| `results-2026-11-25.csv` | Per-domain results for all 10,000 measured sites (see columns below) |
+| `summary-2026-11-25.md` | The measurement summary: fetch success, per-agent blocked/allowed counts, llms.txt adoption, the June 2026 comparison, and method caveats |
+
+### Headline findings
+
+- **llms.txt adoption:** 1,129 of the top 10,000 sites (11.29%) publish `llms.txt`; 219 (2.19%) publish `llms-full.txt`; 219 publish both, 1,129 publish at least one. Six days on: +6 llms.txt, −3 llms-full.txt vs November 19.
+- **AI crawler blocking:** of the 10,000 domains, 6,368 returned a robots.txt (63.7%), 715 refused it with HTTP 401/403 (7.2%, treated as fully disallowed) and 2,917 had no determinable policy (29.2%). Blocked shares below are of the **7,083** sites with a determinable policy.
+- **Training vs. search:** every training / data-collection crawler is blocked by 22.9–26.1% of determinable sites; every search / user-fetch agent by 18.9% or less. Blocking inched up 0.2–0.4 points on every agent since November 19.
+- **What changed in six days:** 21 sites newly block every training crawler — in every case the robots.txt file itself is unchanged; the sites started refusing requests (HTTP 403) or became unreachable. 6 sites moved the other way. 28 sites newly publish llms.txt; 22 stopped (9 true removals, 13 unreachable).
+
+| User-agent | Blocked | Blocked % | Allowed |
+|---|---|---|---|
+| CCBot | 1,849 | 26.1% | 5,234 |
+| Bytespider | 1,846 | 26.1% | 5,237 |
+| GPTBot | 1,782 | 25.2% | 5,301 |
+| ClaudeBot | 1,734 | 24.5% | 5,349 |
+| Meta-ExternalAgent | 1,660 | 23.4% | 5,423 |
+| Google-Extended | 1,628 | 23.0% | 5,455 |
+| Amazonbot | 1,625 | 22.9% | 5,458 |
+| Applebot-Extended | 1,623 | 22.9% | 5,460 |
+| PerplexityBot | 1,338 | 18.9% | 5,745 |
+| ChatGPT-User | 1,264 | 17.8% | 5,819 |
+| Perplexity-User | 1,196 | 16.9% | 5,887 |
+| Claude-User | 1,173 | 16.6% | 5,910 |
+| Claude-SearchBot | 1,151 | 16.3% | 5,932 |
+| OAI-SearchBot | 1,144 | 16.2% | 5,939 |
+
+### Method note (this edition)
+
+The first crawl pass returned fewer reachable sites than the November 19 baseline, so all 1,615 domains whose verdict changed were re-measured from the original egress with a low-concurrency second pass. The published figures are the repaired counts; see `summary-2026-11-25.md` and the report methodology section for detail.
+
+Full report with charts and methodology: https://answerindex.org/reports/2026-11-25-ai-crawler-index/
+
 ## November 2026 edition
 
 Measured **November 19, 2026** over the **Tranco top 10,000** websites.
@@ -64,4 +105,4 @@ Each domain was probed for `/robots.txt`, `/llms.txt` and `/llms-full.txt` (redi
 Full report with charts and methodology: https://answerindex.org/reports/2026-11-ai-crawler-index/
 Per-agent pages: https://answerindex.org/crawlers/
 
-The index is a quarterly series. Next edition: Q1 2027.
+The index is a monthly series. Next edition: December 2026.
